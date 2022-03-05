@@ -198,6 +198,7 @@ get_acme_info () {
     echo -e "1) 腾讯云 dnspod.cn"
     echo -e "2) 阿里云 aliyun"
     echo -e "3) Cloudflare"
+    echo -e "3) Godaddy"
     read -p "请选择:" DNSAPI_INPUT
     case "$DNSAPI_INPUT" in
         1)
@@ -213,6 +214,12 @@ get_acme_info () {
         API_KEY_HEADER='Ali_Secret'
         ;;
         3)
+        ;;
+        4)
+        PLATFORM_NAME='Godaddy'
+        DNSAPI='dns_gd'
+        API_ID_HEADER='GD_Key'
+        API_KEY_HEADER='GD_Secret'
         ;;
         *)
         echo -e "${Red}输入错误,请重新运行脚本.${Font}"
